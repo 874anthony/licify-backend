@@ -24,6 +24,8 @@ export class ProjectsService {
       createProjectDto.images = uploadResult.map((result) => result.secure_url);
     }
 
+    createProjectDto.price = Number(createProjectDto.price);
+
     const createdProject = new this.projectModel(createProjectDto);
     return createdProject.save();
   }
@@ -69,6 +71,8 @@ export class ProjectsService {
       const uploadResult = await this.cloudinaryService.uploadImages(images);
       updateProjectDto.images = uploadResult.map((result) => result.secure_url);
     }
+
+    updateProjectDto.price = Number(updateProjectDto.price);
 
     return this.projectModel
       .findByIdAndUpdate(id, updateProjectDto, {
