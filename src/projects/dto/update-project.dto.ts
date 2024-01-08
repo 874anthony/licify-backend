@@ -1,22 +1,14 @@
 import { PartialType } from '@nestjs/mapped-types';
 import { CreateProjectDto } from './create-project.dto';
-import {
-  IsArray,
-  IsDate,
-  IsNumber,
-  IsOptional,
-  IsPositive,
-} from 'class-validator';
+import { IsArray, IsOptional } from 'class-validator';
 
 export class UpdateProjectDto extends PartialType(CreateProjectDto) {
   @IsOptional()
   name: string;
 
-  @IsDate()
   @IsOptional()
   startDate: Date;
 
-  @IsDate()
   @IsOptional()
   endDate: Date;
 
@@ -25,8 +17,6 @@ export class UpdateProjectDto extends PartialType(CreateProjectDto) {
   items: string[];
 
   @IsOptional()
-  @IsNumber()
-  @IsPositive()
   price: number;
 
   @IsOptional()

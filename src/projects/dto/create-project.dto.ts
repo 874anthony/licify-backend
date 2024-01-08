@@ -1,33 +1,24 @@
-import {
-  IsArray,
-  IsDate,
-  IsNotEmpty,
-  IsNumber,
-  IsOptional,
-  IsPositive,
-} from 'class-validator';
+import { IsArray, IsNotEmpty, IsOptional } from 'class-validator';
 
 export class CreateProjectDto {
   @IsNotEmpty()
   name: string;
 
-  @IsDate()
+  @IsNotEmpty()
   startDate: Date;
 
-  @IsDate()
+  @IsNotEmpty()
   endDate: Date;
 
   @IsNotEmpty()
-  @IsArray()
-  items: string[];
-
-  @IsNotEmpty()
-  @IsNumber()
-  @IsPositive()
   price: number;
 
   @IsNotEmpty()
   constructorClient: string;
+
+  @IsOptional()
+  @IsArray()
+  items: string[];
 
   @IsOptional()
   provider: string;
