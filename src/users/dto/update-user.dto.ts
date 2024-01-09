@@ -1,25 +1,22 @@
 /* eslint-disable prettier/prettier */
-import { IsEmail, IsEnum, IsNotEmpty, MinLength } from 'class-validator';
+import { IsEmail, IsEnum, IsOptional } from 'class-validator';
 import { UserRole } from 'src/shared/interfaces/users.interface';
 
 export class UpdateUserDto {
-  @IsNotEmpty()
+  @IsOptional()
   name: string;
 
-  @IsNotEmpty()
+  @IsOptional()
   @IsEnum(UserRole)
   role: UserRole;
 
-  @IsNotEmpty()
+  @IsOptional()
   businessName: string;
 
+  @IsOptional()
   @IsEmail()
   email: string;
 
-  @IsNotEmpty()
-  @MinLength(6)
-  password: string;
-
-  @IsNotEmpty()
+  @IsOptional()
   avatar: string;
 }
