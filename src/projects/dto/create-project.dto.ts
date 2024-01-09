@@ -1,4 +1,4 @@
-import { IsArray, IsNotEmpty, IsOptional } from 'class-validator';
+import { IsNotEmpty, IsOptional } from 'class-validator';
 
 export class CreateProjectDto {
   @IsNotEmpty()
@@ -17,7 +17,6 @@ export class CreateProjectDto {
   constructorClient: string;
 
   @IsOptional()
-  @IsArray()
   items: string[];
 
   @IsOptional()
@@ -27,6 +26,5 @@ export class CreateProjectDto {
   description: string;
 
   @IsOptional()
-  @IsArray()
   images: string[];
 }
